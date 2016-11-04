@@ -1,7 +1,8 @@
 'user strict'
 
 const app = require('express')()
-const io = require('socket.io')(app)
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
 
 io.on('connection', function(socket){
 	socket.on('message', function(message){
@@ -10,10 +11,10 @@ io.on('connection', function(socket){
 })
 
 app.get('/', function(req, res){
-	
-})
+	res.sendFile(__dirname + '/chat.html')
+});
 
-app.listen(8080, function(err){
+http.listen(8080, function(err){
 	if(!err){
 		console.log('server is up and running.')
 	}
