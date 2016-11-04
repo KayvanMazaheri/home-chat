@@ -5,8 +5,9 @@ const http = require('http').Server(app)
 const io = require('socket.io')(http)
 
 io.on('connection', function(socket){
+	console.log('connected')
 	socket.on('message', function(message){
-		socket.emit('message', message)
+		io.emit('message', message)
 	})
 })
 
