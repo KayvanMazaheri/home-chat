@@ -23,7 +23,9 @@
     <script>
       var socket = io();
       $('form').submit(function(){
-        socket.emit('message', $('#m').val());
+        var msg = $('#m').val();
+        socket.emit('message', msg);
+        $('#messages').append($('<li>').text(msg));
         $('#m').val('');
         return false;
       });

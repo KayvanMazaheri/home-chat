@@ -12,9 +12,9 @@ nconf.defaults({
 })
 
 io.on('connection', function(socket){
-	console.log('connected')
+	console.log('client connected')
 	socket.on('message', function(message){
-		io.emit('message', message)
+		socket.broadcast.emit('message', message)
 	})
 })
 
