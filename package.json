@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,8 @@
   "dependencies": {
     "express": "^4.14.0",
     "nconf": "^0.8.4",
-    "socket.io": "^1.5.1"
-  }
+    "socket.io": "^2.0.2",
+    "snyk": "^1.42.3"
+  },
+  "snyk": true
 }
